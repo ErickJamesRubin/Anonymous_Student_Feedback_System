@@ -33,6 +33,91 @@
     </div>
 </nav>
 
+ <h1>Share Your Feedback</h1>
+    <p>All responses are kept strictly anonymous</p>
+
+    <form action="feedback-hub.html" method="post">
+
+      
+        <label for="category">Category</label><br>
+        <select id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="academic">Academic</option>
+            <option value="faculty">Faculty</option>
+            <option value="facilities">Facilities</option>
+            <option value="services">Student Services</option>
+            <option value="other">Other</option>
+        </select>
+
+        <br><br>
+
+       
+        <button type="submit" name="rating" value="1">★</button>
+<button type="submit" name="rating" value="2">★★</button>
+<button type="submit" name="rating" value="3">★★★</button>
+<button type="submit" name="rating" value="4">★★★★</button>
+<button type="submit" name="rating" value="5">★★★★★</button>
+
+        <br><br>
+
+     
+        <label for="feedback">Your Feedback</label><br>
+        <textarea id="feedback" name="feedback" rows="5" placeholder="Describe your experience, suggestion, or concern..." required></textarea>
+
+        <br><br>
+
+      
+        <p>Tags (optional)</p>
+        <label><input type="checkbox" name="tags[]" value="urgent"> Urgent</label>
+        <label><input type="checkbox" name="tags[]" value="suggestions"> Suggestions</label>
+        <label><input type="checkbox" name="tags[]" value="complaint"> Complaint</label>
+        <label><input type="checkbox" name="tags[]" value="compliment"> Compliment</label>
+        <label><input type="checkbox" name="tags[]" value="follow-up"> Follow-up</label>
+
+        <br><br>
+
+     
+        <p>Visibility</p>
+        <label>
+            <input type="radio" name="visibility" value="public" required>
+            Public
+        </label>
+        <label>
+            <input type="radio" name="visibility" value="private">
+            Private
+        </label>
+
+        <br><br>
+
+      
+        <p>What is this about?</p>
+        <label>
+            <input type="radio" name="about" value="instructor" required>
+            Instructor (A specific faculty member)
+        </label><br>
+
+        <label>
+            <input type="radio" name="about" value="authorized">
+            Authorized Personnel (Admin / staff member)
+        </label><br>
+
+        <label>
+            <input type="radio" name="about" value="general">
+            General / School (Not about one person)
+        </label>
+
+        <br><br>
+
+  
+        <label for="evidence">Attach Evidence (Optional)</label><br>
+        <input type="file" id="evidence" name="evidence">
+
+        <br><br>
+
+     
+        <button type="submit">Submit Feedback</button>
+
+    </form>
 
 
     <footer class="footer">
