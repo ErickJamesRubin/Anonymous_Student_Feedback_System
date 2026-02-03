@@ -27,19 +27,19 @@
     </div>
 </nav>
 
+<link rel="stylesheet" href="feedback.css">
 
- <div class="fb-wrapper">
-    <form class="fb-form" action="feedback-hub.html" method="post">
+<div class="feedback-page">
+    <div class="feedback-container">
 
-        <div class="fb-header">
-            <h1>Share Your Feedback</h1>
-            <p>All responses are kept strictly anonymous</p>
-        </div>
+        <h1 class="feedback-title">Share Your Feedback</h1>
+        <p class="feedback-subtitle">All responses are kept strictly anonymous</p>
 
-        <!-- Category -->
-        <div class="fb-group">
-            <label for="category">Category</label>
-            <select id="category" name="category" required>
+        <form class="feedback-form" action="feedback-hub.html" method="post">
+
+            <!-- Category -->
+            <label class="feedback-label" for="category">Category</label>
+            <select class="feedback-select" id="category" name="category" required>
                 <option value="">Select a category</option>
                 <option value="academic">Academic</option>
                 <option value="faculty">Faculty</option>
@@ -47,68 +47,78 @@
                 <option value="services">Student Services</option>
                 <option value="other">Other</option>
             </select>
-        </div>
 
-        <!-- Rating -->
-        <div class="fb-group">
-            <label>Rating</label>
-            <div class="fb-rating">
-                <button type="button">★</button>
-                <button type="button">★★</button>
-                <button type="button">★★★</button>
-                <button type="button">★★★★</button>
-                <button type="button">★★★★★</button>
+            <!-- Rating -->
+            <label class="feedback-label">Rating</label>
+            <div class="feedback-stars">
+                <button type="submit" name="rating" value="1">★</button>
+                <button type="submit" name="rating" value="2">★★</button>
+                <button type="submit" name="rating" value="3">★★★</button>
+                <button type="submit" name="rating" value="4">★★★★</button>
+                <button type="submit" name="rating" value="5">★★★★★</button>
             </div>
-        </div>
 
-        <!-- Feedback -->
-        <div class="fb-group">
-            <label for="feedback">Your Feedback</label>
-            <textarea id="feedback" name="feedback"
-                placeholder="Describe your experience, suggestion, or concern..."
-                required></textarea>
-        </div>
+            <!-- Feedback -->
+            <label class="feedback-label" for="feedback">Your Feedback</label>
+            <textarea class="feedback-textarea" id="feedback" name="feedback"
+                placeholder="Describe your experience, suggestion, or concern..." required></textarea>
 
-        <!-- Tags -->
-        <div class="fb-group">
-            <p class="fb-label">Tags (optional)</p>
-            <div class="fb-inline">
+            <!-- Tags -->
+            <label class="feedback-label">Tags (Optional)</label>
+            <div class="feedback-checkbox-group">
                 <label><input type="checkbox" name="tags[]" value="urgent"> Urgent</label>
                 <label><input type="checkbox" name="tags[]" value="suggestions"> Suggestions</label>
                 <label><input type="checkbox" name="tags[]" value="complaint"> Complaint</label>
                 <label><input type="checkbox" name="tags[]" value="compliment"> Compliment</label>
                 <label><input type="checkbox" name="tags[]" value="follow-up"> Follow-up</label>
             </div>
-        </div>
 
-        <!-- Visibility -->
-        <div class="fb-group">
-            <p class="fb-label">Visibility</p>
-            <div class="fb-inline">
-                <label><input type="radio" name="visibility" value="public" required> Public</label>
-                <label><input type="radio" name="visibility" value="private"> Private</label>
+            <!-- Visibility -->
+            <label class="feedback-label">Visibility</label>
+            <div class="feedback-radio-group">
+                <label class="feedback-radio-box">
+                    <input type="radio" name="visibility" value="public" required>
+                    Public
+                </label>
+
+                <label class="feedback-radio-box">
+                    <input type="radio" name="visibility" value="private">
+                    Private
+                </label>
             </div>
-        </div>
 
-        <!-- About -->
-        <div class="fb-group">
-            <p class="fb-label">What is this about?</p>
-            <div class="fb-stack">
-                <label><input type="radio" name="about" value="instructor" required> Instructor</label>
-                <label><input type="radio" name="about" value="authorized"> Authorized Personnel</label>
-                <label><input type="radio" name="about" value="general"> General / School</label>
+            <!-- About -->
+            <label class="feedback-label">What is this about?</label>
+            <div class="feedback-radio-group">
+
+                <label class="feedback-radio-box">
+                    <input type="radio" name="about" value="instructor" required>
+                    Instructor (A specific faculty member)
+                </label>
+
+                <label class="feedback-radio-box">
+                    <input type="radio" name="about" value="authorized">
+                    Authorized Personnel (Admin / staff member)
+                </label>
+
+                <label class="feedback-radio-box">
+                    <input type="radio" name="about" value="general">
+                    General / School (Not about one person)
+                </label>
+
             </div>
-        </div>
 
-        <!-- Evidence -->
-        <div class="fb-group">
-            <label for="evidence">Attach Evidence (Optional)</label>
-            <input type="file" id="evidence" name="evidence">
-        </div>
+            <!-- Evidence -->
+            <label class="feedback-label" for="evidence">Attach Evidence (Optional)</label>
+            <input class="feedback-file" type="file" id="evidence" name="evidence">
 
-        <button class="fb-submit" type="submit">Submit Feedback</button>
+            <!-- Submit -->
+            <button class="feedback-submit-btn" type="submit">
+                Submit Feedback
+            </button>
 
-    </form>
+        </form>
+    </div>
 </div>
 
 
@@ -118,8 +128,6 @@
             All rights reserved.
         </p>
     </footer>
-
-
 
   <script src="script.js"></script>
  
