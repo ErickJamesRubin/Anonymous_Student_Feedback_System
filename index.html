@@ -8,42 +8,56 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    Anonymous Student Feedback System
-  </nav>
+<nav class="navbar">
+  Anonymous Student Feedback System
+</nav>
 
-  <div class="container">
+<div class="container">
 
-    <div class="right-panel">
-      <h2>USER LOGIN</h2>
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <h1>Do you have a complaints?</h1>
 
-      <form id="loginForm">
-        <div class="input-group">
-          <input type="text" id="username" placeholder="Username" required />
-        </div>
-
-        <div class="input-group">
-          <input type="password" id="password" placeholder="Password" required />
-          <span class="toggle-password" onclick="togglePassword()">👁</span>
-        </div>
-
-        <a href="ChangePassword.html" class="forgot">Forgot Password</a>
-
-        <button type="submit" class="btn login-btn">LOGIN</button>
-        <hr>
-        <button type="button" class="btn signup-btn">SIGN UP</button>
-      </form>
-    </div>
+    <p>
+      “This website is designed to cater students’ complaints in an anonymous way
+      because your voice deserves to be heard without fear. Whether it concerns
+      instructors, staff, or higher school officials, this platform gives you a
+      safe space to speak up, be honest, and spark change.”
+    </p>
   </div>
 
-  <footer class="footer">
-        <p>
-            © 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
-            All rights reserved.
-        </p>
-    </footer>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <h2>USER LOGIN</h2>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="text" placeholder="Username" required />
+      </div>
+
+      <div class="input-group password-group">
+        <input type="password" id="password" placeholder="Password" required />
+        <span class="toggle-password" onclick="togglePassword()">👁</span>
+      </div>
+
+      <a href="#" class="forgot">Forgot Password</a>
+
+      <button type="submit" class="btn login-btn">LOGIN</button>
+      <hr>
+      <button type="button" class="btn signup-btn">SIGN UP</button>
+    </form>
+  </div>
+
+</div>
+
+<footer class="footer">
+  © 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
+  All rights reserved.
+</footer>
+
 
   <script src="script.js"></script>
-  <link rel="stylesheet" href="style.css">
+  
 </body>
 </html>
