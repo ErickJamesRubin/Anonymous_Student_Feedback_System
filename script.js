@@ -12,3 +12,4 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     window.location.href = "home.html";
   }, 1000);
 });
+
