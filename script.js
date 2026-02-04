@@ -36,6 +36,35 @@ aboutCards.forEach(card => {
     });
 });
 
+const stars = document.querySelectorAll('.rating-star');
+const ratingInput = document.getElementById('ratingValue');
+let currentRating = 0;
+
+stars.forEach(star => {
+    const value = star.dataset.value;
+
+    star.addEventListener('mouseenter', () => {
+        highlightStars(value);
+    });
+
+    star.addEventListener('mouseleave', () => {
+        highlightStars(currentRating);
+    });
+
+    star.addEventListener('click', () => {
+        currentRating = value;
+        ratingInput.value = value;
+        highlightStars(value);
+    });
+});
+
+function highlightStars(rating) {
+    stars.forEach(star => {
+        star.classList.toggle('active', star.dataset.value <= rating);
+    });
+}
+
+
  
 
 document.getElementById("loginForm").addEventListener("submit", function (e) {

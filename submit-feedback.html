@@ -1,167 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anonymous Student Feedback System</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
- <nav class="navbar">
+  <nav class="navbar">
     <div class="navbar-left">
-        <a href="index.html">Anonymous Student Feedback System</a>
+      <a href="index.html">Anonymous Student Feedback System</a>
     </div>
 
     <div class="navbar-center">
-        <a href="home.html">Home</a>
-        <a href="#">About</a>
-        <a href="#">How It Works</a>
-        <a href="#">Feedback Hub</a>
-        <a href="#">Contacts</a>
+      <a href="home.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">How It Works</a>
+      <a href="#">Feedback Hub</a>
+      <a href="#">Contacts</a>
     </div>
 
     <div class="navbar-right">
-        <a href="#">Username</a>
-        <img src="profile.png" alt="Profile Picture">
+      <a href="#">Username</a>
+      <img src="profile.png" alt="Profile Picture">
     </div>
-</nav>
+  </nav>
 
-<link rel="stylesheet" href="feedback.css">
+  <link rel="stylesheet" href="feedback.css">
 
-<div class="feedback-page">
+  <div class="feedback-page">
     <div class="feedback-container">
 
-        <h1 class="feedback-title">Share Your Feedback</h1>
-        <p class="feedback-subtitle">All responses are kept strictly anonymous</p>
+      <h1 class="feedback-title">Share Your Feedback</h1>
+      <p class="feedback-subtitle">All responses are kept strictly anonymous</p>
 
-        <form class="feedback-form" action="feedback-hub.html" method="post">
+      <form class="feedback-form" action="feedback-hub.html" method="post">
 
-            <!-- Category -->
-            <label class="feedback-label" for="category">Category</label>
-            <select class="feedback-select" id="category" name="category" required>
-                <option value="">Select a category</option>
-                <option value="academic">Academic</option>
-                <option value="faculty">Faculty</option>
-                <option value="facilities">Facilities</option>
-                <option value="services">Student Services</option>
-                <option value="other">Other</option>
-            </select>
+        <!-- Category -->
+        <label class="feedback-label" for="category">Category</label>
+        <select class="feedback-select" id="category" name="category" required>
+          <option value="">Select a category</option>
+          <option value="academic">Academic</option>
+          <option value="faculty">Faculty</option>
+          <option value="facilities">Facilities</option>
+          <option value="services">Student Services</option>
+          <option value="other">Other</option>
+        </select>
 
-            <!-- Rating -->
-            <label class="feedback-label">Rating</label>
-            <div class="feedback-stars">
-                <button type="submit" name="rating" value="1">★</button>
-                <button type="submit" name="rating" value="2">★★</button>
-                <button type="submit" name="rating" value="3">★★★</button>
-                <button type="submit" name="rating" value="4">★★★★</button>
-                <button type="submit" name="rating" value="5">★★★★★</button>
-            </div>
+        <!-- Rating -->
+        <label class="rating-label">Rate Your Experience *</label>
 
-            <!-- Feedback -->
-            <label class="feedback-label" for="feedback">Your Feedback</label>
-            <textarea class="feedback-textarea" id="feedback" name="feedback"
-                placeholder="Describe your experience, suggestion, or concern..." required></textarea>
+        <div class="rating-stars" data-rating="0">
+          <span class="rating-star" data-value="1">★</span>
+          <span class="rating-star" data-value="2">★</span>
+          <span class="rating-star" data-value="3">★</span>
+          <span class="rating-star" data-value="4">★</span>
+          <span class="rating-star" data-value="5">★</span>
+        </div>
 
-            <!-- Tags -->
-            <label class="feedback-label">Tags (Optional)</label>
-
-<div class="feedback-checkbox-group">
-  <label class="tag tag-urgent">
-    <input type="checkbox" name="tags[]" value="urgent">
-    Urgent
-  </label>
-
-  <label class="tag tag-suggestion">
-    <input type="checkbox" name="tags[]" value="suggestion">
-    Suggestion
-  </label>
-
-  <label class="tag tag-complaint">
-    <input type="checkbox" name="tags[]" value="complaint">
-    Complaint
-  </label>
-
-  <label class="tag tag-compliment">
-    <input type="checkbox" name="tags[]" value="compliment">
-    Compliment
-  </label>
-
-  <label class="tag tag-followup">
-    <input type="checkbox" name="tags[]" value="follow-up">
-    Follow-up
-  </label>
-</div>
+        <input type="hidden" name="rating" id="ratingValue" required>
 
 
-            <!-- Visibility -->
-          <label class="feedback-label">Visibility</label>
+        <!-- Feedback -->
+        <label class="feedback-label" for="feedback">Your Feedback</label>
+        <textarea class="feedback-textarea" id="feedback" name="feedback"
+          placeholder="Describe your experience, suggestion, or concern..." required></textarea>
 
-<div class="visibility-toggle" id="visibilityToggle">
-  <div class="toggle-option active" data-value="public">
-    Public
+        <!-- Tags -->
+        <label class="feedback-label">Tags (Optional)</label>
+
+        <div class="feedback-checkbox-group">
+          <label class="tag tag-urgent">
+            <input type="checkbox" name="tags[]" value="urgent">
+            Urgent
+          </label>
+
+          <label class="tag tag-suggestion">
+            <input type="checkbox" name="tags[]" value="suggestion">
+            Suggestion
+          </label>
+
+          <label class="tag tag-complaint">
+            <input type="checkbox" name="tags[]" value="complaint">
+            Complaint
+          </label>
+
+          <label class="tag tag-compliment">
+            <input type="checkbox" name="tags[]" value="compliment">
+            Compliment
+          </label>
+
+          <label class="tag tag-followup">
+            <input type="checkbox" name="tags[]" value="follow-up">
+            Follow-up
+          </label>
+        </div>
+
+
+        <!-- Visibility -->
+        <label class="feedback-label">Visibility</label>
+
+        <div class="visibility-toggle" id="visibilityToggle">
+          <div class="toggle-option active" data-value="public">
+            Public
+          </div>
+          <div class="toggle-option" data-value="private">
+            Private
+          </div>
+        </div>
+
+        <!-- Hidden input for form submission -->
+        <input type="hidden" name="visibility" id="visibilityInput" value="public">
+
+
+
+
+        <!-- About -->
+        <label class="about-select-label">What is this about?</label>
+
+        <div class="about-select-group">
+
+          <div class="about-select-card" data-value="instructor">
+            <input type="radio" name="about" value="instructor" hidden required>
+            <div class="about-card-title">Instructor</div>
+            <div class="about-card-desc">A specific faculty member</div>
+          </div>
+
+          <div class="about-select-card" data-value="authorized">
+            <input type="radio" name="about" value="authorized" hidden>
+            <div class="about-card-title">Authorized Personnel</div>
+            <div class="about-card-desc">Admin / staff member</div>
+          </div>
+
+          <div class="about-select-card" data-value="general">
+            <input type="radio" name="about" value="general" hidden>
+            <div class="about-card-title">General / School</div>
+            <div class="about-card-desc">Not about one person</div>
+          </div>
+
+
+
+
+        </div>
+
+        <!-- Evidence -->
+        <label class="feedback-label" for="evidence">Attach Evidence (Optional)</label>
+        <input class="feedback-file" type="file" id="evidence" name="evidence">
+
+        <!-- Submit -->
+        <button class="feedback-submit-btn" type="submit">
+          Submit Feedback
+        </button>
+
+      </form>
+    </div>
   </div>
-  <div class="toggle-option" data-value="private">
-    Private
-  </div>
-</div>
-
-<!-- Hidden input for form submission -->
-<input type="hidden" name="visibility" id="visibilityInput" value="public">
 
 
-
-
-            <!-- About -->
-          <label class="about-select-label">What is this about?</label>
-
-<div class="about-select-group">
-
-    <div class="about-select-card" data-value="instructor">
-        <input type="radio" name="about" value="instructor" hidden required>
-        <div class="about-card-title">Instructor</div>
-        <div class="about-card-desc">A specific faculty member</div>
-    </div>
-
-    <div class="about-select-card" data-value="authorized">
-        <input type="radio" name="about" value="authorized" hidden>
-        <div class="about-card-title">Authorized Personnel</div>
-        <div class="about-card-desc">Admin / staff member</div>
-    </div>
-
-    <div class="about-select-card" data-value="general">
-        <input type="radio" name="about" value="general" hidden>
-        <div class="about-card-title">General / School</div>
-        <div class="about-card-desc">Not about one person</div>
-    </div>
-
-
-
-
-            </div>
-
-            <!-- Evidence -->
-            <label class="feedback-label" for="evidence">Attach Evidence (Optional)</label>
-            <input class="feedback-file" type="file" id="evidence" name="evidence">
-
-            <!-- Submit -->
-            <button class="feedback-submit-btn" type="submit">
-                Submit Feedback
-            </button>
-
-        </form>
-    </div>
-</div>
-
-
-    <footer class="footer">
-        <p>
-            © 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
-            All rights reserved.
-        </p>
-    </footer>
+  <footer class="footer">
+    <p>
+      © 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
+      All rights reserved.
+    </p>
+  </footer>
 
   <script src="script.js"></script>
- 
+
 </body>
+
 </html>

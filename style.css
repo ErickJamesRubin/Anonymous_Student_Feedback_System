@@ -558,3 +558,29 @@ hr{
     font-size: 14px;
     opacity: 0.85;
 }
+
+.rating-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 6px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.rating-star {
+    color: #d9e1ef; /* inactive star */
+    transition: color 0.2s ease;
+}
+
+.rating-star.active {
+    color: #f4b400; /* gold star */
+}
+
+.rating-star.hover {
+    color: #f4b400;
+}
