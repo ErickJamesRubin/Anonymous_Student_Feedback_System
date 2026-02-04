@@ -1,5 +1,4 @@
-
-/*Login Page*/
+/*login page*/
 * {
   margin: 0;
   padding: 0;
@@ -137,38 +136,79 @@ hr {
 
 
 
-/*Navigation and Footer*/
+/*navigation and footerS*/
 .navbar{
   background: linear-gradient(to right, #0b1fae, #1e40ff);
-  color:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 40px;
-  font-weight:bold;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  font-weight: bold;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.navbar a{
-  color:white;
-  text-decoration:none;
-  margin:0 12px;
-  font-size:14px;
+.navbar-left {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.navbar-center a:hover{
-  text-decoration:underline;
+.navbar-center {
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
 }
 
-.navbar-right{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
 }
 
-.navbar-right img{
-  width:32px;
-  height:32px;
-  border-radius:50%;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.navbar-left a {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.navbar-center a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.navbar-right img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+
+/* making the screen responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .navbar-center {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
 }
 
 .footer{
@@ -281,7 +321,7 @@ hr{
 }
 
 
-/*Feedback*/
+/*feedback*/
 .why-feedback{
   background:#c7d2de;
   text-align:center;
@@ -318,7 +358,7 @@ hr{
 }
 
 
-/*Feedback Page*/
+/*feedback page*/
 .feedback-page {
     background: #f4f6fb;
     min-height: 100vh;
@@ -459,7 +499,8 @@ hr{
   border: 1px solid transparent;
 }
 
-/* Tag colors */
+
+/* color tag */
 .tag-urgent {
   background-color: #fff4cc;
   border-color: #f2c94c;
@@ -485,7 +526,8 @@ hr{
   border-color: #ec407a;
 }
 
-/* Optional: make checkbox cleaner */
+
+/* make the checkbox look cleaner */
 .tag input {
   cursor: pointer;
 }
@@ -581,12 +623,12 @@ hr{
 }
 
 .rating-star {
-    color: #d9e1ef; /* inactive star */
+    color: #d9e1ef; 
     transition: color 0.2s ease;
 }
 
 .rating-star.active {
-    color: #f4b400; /* gold star */
+    color: #f4b400; 
 }
 
 .rating-star.hover {
