@@ -95,14 +95,14 @@
 
 
             <!-- Visibility -->
-          <label class="feedback-label">Visibility *</label>
+          <label class="feedback-label">Visibility</label>
 
 <div class="visibility-toggle" id="visibilityToggle">
   <div class="toggle-option active" data-value="public">
-    🌐 Public
+    Public
   </div>
   <div class="toggle-option" data-value="private">
-    🔒 Private
+    Private
   </div>
 </div>
 
@@ -113,23 +113,30 @@
 
 
             <!-- About -->
-            <label class="feedback-label">What is this about?</label>
-            <div class="feedback-radio-group">
+          <label class="about-select-label">What is this about?</label>
 
-                <label class="feedback-radio-box">
-                    <input type="radio" name="about" value="instructor" required>
-                    Instructor (A specific faculty member)
-                </label>
+<div class="about-select-group">
 
-                <label class="feedback-radio-box">
-                    <input type="radio" name="about" value="authorized">
-                    Authorized Personnel (Admin / staff member)
-                </label>
+    <div class="about-select-card" data-value="instructor">
+        <input type="radio" name="about" value="instructor" hidden required>
+        <div class="about-card-title">Instructor</div>
+        <div class="about-card-desc">A specific faculty member</div>
+    </div>
 
-                <label class="feedback-radio-box">
-                    <input type="radio" name="about" value="general">
-                    General / School (Not about one person)
-                </label>
+    <div class="about-select-card" data-value="authorized">
+        <input type="radio" name="about" value="authorized" hidden>
+        <div class="about-card-title">Authorized Personnel</div>
+        <div class="about-card-desc">Admin / staff member</div>
+    </div>
+
+    <div class="about-select-card" data-value="general">
+        <input type="radio" name="about" value="general" hidden>
+        <div class="about-card-title">General / School</div>
+        <div class="about-card-desc">Not about one person</div>
+    </div>
+
+
+
 
             </div>
 

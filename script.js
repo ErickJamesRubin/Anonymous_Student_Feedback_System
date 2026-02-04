@@ -18,6 +18,24 @@ function togglePassword() {
       visibilityInput.value = option.dataset.value;
     });
   });
+
+  const aboutCards = document.querySelectorAll('.about-select-card');
+
+aboutCards.forEach(card => {
+    card.addEventListener('click', () => {
+
+        // Remove active state from all
+        aboutCards.forEach(c => c.classList.remove('active'));
+
+        // Add active to clicked
+        card.classList.add('active');
+
+        // Check the hidden radio
+        const radio = card.querySelector('input[type="radio"]');
+        radio.checked = true;
+    });
+});
+
  
 
 document.getElementById("loginForm").addEventListener("submit", function (e) {
