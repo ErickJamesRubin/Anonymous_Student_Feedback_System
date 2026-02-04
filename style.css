@@ -378,6 +378,7 @@ hr{
     box-sizing: border-box;
 }
 
+
 .feedback-textarea {
     resize: vertical;      
     min-height: 120px;    
