@@ -65,13 +65,34 @@
 
             <!-- Tags -->
             <label class="feedback-label">Tags (Optional)</label>
-            <div class="feedback-checkbox-group">
-                <label><input type="checkbox" name="tags[]" value="urgent"> Urgent</label>
-                <label><input type="checkbox" name="tags[]" value="suggestions"> Suggestions</label>
-                <label><input type="checkbox" name="tags[]" value="complaint"> Complaint</label>
-                <label><input type="checkbox" name="tags[]" value="compliment"> Compliment</label>
-                <label><input type="checkbox" name="tags[]" value="follow-up"> Follow-up</label>
-            </div>
+
+<div class="feedback-checkbox-group">
+  <label class="tag tag-urgent">
+    <input type="checkbox" name="tags[]" value="urgent">
+    Urgent
+  </label>
+
+  <label class="tag tag-suggestion">
+    <input type="checkbox" name="tags[]" value="suggestion">
+    Suggestion
+  </label>
+
+  <label class="tag tag-complaint">
+    <input type="checkbox" name="tags[]" value="complaint">
+    Complaint
+  </label>
+
+  <label class="tag tag-compliment">
+    <input type="checkbox" name="tags[]" value="compliment">
+    Compliment
+  </label>
+
+  <label class="tag tag-followup">
+    <input type="checkbox" name="tags[]" value="follow-up">
+    Follow-up
+  </label>
+</div>
+
 
             <!-- Visibility -->
             <label class="feedback-label">Visibility</label>

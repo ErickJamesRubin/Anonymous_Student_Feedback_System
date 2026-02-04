@@ -425,3 +425,59 @@ hr{
 .feedback-submit-btn:hover {
     background: #5674e8;
 }
+
+
+
+.feedback-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.feedback-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+/* Tag colors */
+.tag-urgent {
+  background-color: #fff4cc;
+  border-color: #f2c94c;
+}
+
+.tag-suggestion {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+}
+
+.tag-complaint {
+  background-color: #fdecea;
+  border-color: #e53935;
+}
+
+.tag-compliment {
+  background-color: #e8f5e9;
+  border-color: #43a047;
+}
+
+.tag-followup {
+  background-color: #fce4ec;
+  border-color: #ec407a;
+}
+
+/* Optional: make checkbox cleaner */
+.tag input {
+  cursor: pointer;
+}
