@@ -352,6 +352,7 @@ hr{
 
 .feedback-form {
     display: flex;
+    width: 400px;
     flex-direction: column;
     gap: 20px;
 }
@@ -370,10 +371,16 @@ hr{
 .feedback-select,
 .feedback-textarea {
     width: 100%;
+    max-width: 100%;      
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #ddd;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+}
+
+.feedback-textarea {
+    resize: vertical;      
+    min-height: 120px;    
 }
 
 .feedback-stars {
