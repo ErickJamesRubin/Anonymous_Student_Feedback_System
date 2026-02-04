@@ -481,3 +481,35 @@ hr{
 .tag input {
   cursor: pointer;
 }
+
+.visibility-toggle {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  max-width: 420px;
+}
+
+.toggle-option {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #f8f9fa;
+  color: #555;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-option.active {
+  background-color: #0b1c2d;
+  color: #ffffff;
+}
+
+.visibility-note {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+

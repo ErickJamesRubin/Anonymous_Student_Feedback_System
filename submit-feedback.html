@@ -95,18 +95,22 @@
 
 
             <!-- Visibility -->
-            <label class="feedback-label">Visibility</label>
-            <div class="feedback-radio-group">
-                <label class="feedback-radio-box">
-                    <input type="radio" name="visibility" value="public" required>
-                    Public
-                </label>
+          <label class="feedback-label">Visibility *</label>
 
-                <label class="feedback-radio-box">
-                    <input type="radio" name="visibility" value="private">
-                    Private
-                </label>
-            </div>
+<div class="visibility-toggle" id="visibilityToggle">
+  <div class="toggle-option active" data-value="public">
+    🌐 Public
+  </div>
+  <div class="toggle-option" data-value="private">
+    🔒 Private
+  </div>
+</div>
+
+<!-- Hidden input for form submission -->
+<input type="hidden" name="visibility" id="visibilityInput" value="public">
+
+
+
 
             <!-- About -->
             <label class="feedback-label">What is this about?</label>
