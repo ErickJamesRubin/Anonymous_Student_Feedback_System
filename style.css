@@ -352,7 +352,7 @@ hr{
 
 .feedback-form {
     display: flex;
-    width: 400px;
+    width: px;
     flex-direction: column;
     gap: 20px;
 }
@@ -364,30 +364,24 @@ hr{
 }
 
 .feedback-label {
-    font-weight: bold;
-    font-size: 14px;
+   display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
 .feedback-select,
 .feedback-textarea {
     width: 100%;
-    max-width: 100%;      
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #ddd;
-    box-sizing: border-box;
-}
-
-
-.feedback-textarea {
-    resize: vertical;      
-    min-height: 120px;    
+    box-sizing: border-box; 
 }
 
 .feedback-stars {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .feedback-stars button {
