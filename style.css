@@ -676,4 +676,28 @@ button:hover {
     }
 }
         
-        
+/*centralized with margin in about page*/
+
+.about-container,
+.team-container,
+.cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-intro,
+.about-mission p {
+    text-align: center;
+}
+
+.about-mission,
+.about-values,
+.team-section,
+.cta-container{
+    text-align: center;
+}
+
+.values-grid {
+    text-align: center;
+}
