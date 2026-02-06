@@ -1,3 +1,4 @@
+//password login 
 function togglePassword() {
   const password = document.getElementById("password");
   password.type = password.type === "password" ? "text" : "password";
@@ -19,18 +20,50 @@ function togglePassword() {
     });
   });
 
-  const aboutCards = document.querySelectorAll('.about-select-card');
+  //hamburger for navigation
+const hamburger = document.getElementById('hamburger');
+const navbarCenter = document.getElementById('navbarCenter');
+
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+
+        this.classList.toggle('active');
+
+        navbarCenter.classList.toggle('active');
+    });
+    
+    //navigatino
+    const navLinks = navbarCenter.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navbarCenter.classList.remove('active');
+        });
+    });
+
+
+    document.addEventListener('click', function(event) {
+        const isClickInsideNav = navbarCenter.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && navbarCenter.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navbarCenter.classList.remove('active');
+        }
+    });
+}
+
+
+//about cards  
+const aboutCards = document.querySelectorAll('.about-select-card');
 
 aboutCards.forEach(card => {
     card.addEventListener('click', () => {
 
-        // Remove active state from all
         aboutCards.forEach(c => c.classList.remove('active'));
 
-        // Add active to clicked
         card.classList.add('active');
 
-        // Check the hidden radio
         const radio = card.querySelector('input[type="radio"]');
         radio.checked = true;
     });
