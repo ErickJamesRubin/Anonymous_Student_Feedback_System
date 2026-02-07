@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ErickJamesRubin/Anonymous_Student_Feedback_System#readme",
   "devDependencies": {
-    "electron": "^40.1.0"
+    "electron": "^40.2.1"
   },
   "dependencies": {
     "boolean": "^3.2.0",
