@@ -1,4 +1,4 @@
-// ── SIDEBAR ──
+// SIDEBAR 
   const hamburger = document.getElementById('hamburger');
   const sidebar   = document.getElementById('sidebar');
   hamburger.addEventListener('click', () => sidebar.classList.toggle('open'));
@@ -7,7 +7,7 @@
       sidebar.classList.remove('open');
   });
 
-  // ── DATA ──
+  // DATA 
   const feedbackData = [
     { id:'NBSC-A1B2C', category:'Academic',   message:'The grading system for our major subjects lacks transparency. Students are not informed about how final grades are computed, and there seems to be inconsistency between professors. A clear, published rubric would greatly help.', priority:'High',   status:'pending',  date:'Feb 26, 2026', notes:'' },
     { id:'NBSC-D3E4F', category:'Facilities', message:'The restrooms near the Engineering building have been broken for over two weeks. Faucets are not functioning and the ventilation is poor. This is a basic sanitation concern that needs urgent attention.',                   priority:'Urgent', status:'reviewed', date:'Feb 25, 2026', notes:'Forwarded to the facilities management team. Awaiting repair schedule.' },
@@ -25,7 +25,7 @@
 
   let currentId = null;
 
-  // ── RENDER TABLE ──
+  // RENDER TABLE 
   function renderTable(data) {
     const tbody = document.getElementById('feedbackTableBody');
     const empty = document.getElementById('tableEmpty');
@@ -56,7 +56,7 @@
     updateCounts();
   }
 
-  // ── FILTERS ──
+  // FILTERS 
   function applyFilters() {
     const search   = document.getElementById('searchInput').value.toLowerCase();
     const status   = document.getElementById('filterStatus').value;
@@ -74,7 +74,7 @@
     document.getElementById(id).addEventListener('input', applyFilters)
   );
 
-  // ── COUNTS ──
+  // COUNTS 
   function updateCounts() {
     document.getElementById('countAll').textContent      = feedbackData.length;
     document.getElementById('countPending').textContent  = feedbackData.filter(f => f.status === 'pending').length;
@@ -83,7 +83,7 @@
     document.getElementById('sidebarBadge').textContent  = feedbackData.length;
   }
 
-  // ── DETAIL MODAL ──
+  // DETAIL MODAL 
   function openDetail(id) {
     const item = feedbackData.find(f => f.id === id);
     if (!item) return;
@@ -104,7 +104,7 @@
   document.getElementById('detailModal').addEventListener('click', e => { if (e.target === document.getElementById('detailModal')) closeModal(); });
   function closeModal() { document.getElementById('detailModal').classList.remove('show'); currentId = null; }
 
-  // ── STATUS UPDATE ──
+  // STATUS UPDATE 
   function updateStatus(newStatus) {
     if (!currentId) return;
     const item = feedbackData.find(f => f.id === currentId);
@@ -119,14 +119,14 @@
   document.getElementById('btnReviewed').addEventListener('click', () => updateStatus('reviewed'));
   document.getElementById('btnResolved').addEventListener('click', () => updateStatus('resolved'));
 
-  // ── SAVE NOTE ──
+  // SAVE NOTE 
   document.getElementById('btnSaveNote').addEventListener('click', () => {
     if (!currentId) return;
     feedbackData.find(f => f.id === currentId).notes = document.getElementById('dmNotes').value;
     toast('Note saved successfully');
   });
 
-  // ── TOAST ──
+  // TOAST 
   function toast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg; t.classList.add('show');
@@ -135,5 +135,5 @@
 
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
-  // ── INIT ──
+  // INIT 
   renderTable(feedbackData);
