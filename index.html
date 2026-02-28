@@ -3,47 +3,324 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anonymous Student Feedback System</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>NBSC Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar">
-  Anonymous Student Feedback System
-</nav>
-
-<div class="container">
-  <div class="login-card">
-    <div class="right-panel"></div>
-    <h2>USER LOGIN</h2>
-
-    <form id="loginForm">
-      <div class="input-group">
-        <input type="text" placeholder="Username" required />
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <div class="logo-icon">NB</div>
+      <div class="logo-text">
+        NBSC Feedback
+        <div class="logo-sub">Northern Bukidnon State College</div>
       </div>
-
-      <div class="input-group password-group">
-        <input type="password" id="password" placeholder="Password" required />
-        <span class="toggle-password" onclick="togglePassword()">👁</span>
-      </div>
-
-      <a href="#" class="forgot">Forgot Password</a>
-
-      <button type="submit" class="btn login-btn">LOGIN</button>
-      <hr>
-      <button type="button" class="btn login-btn">SIGN UP</button>
-    </form>
+    </div>
   </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Main</div>
+    <a href="home.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      Dashboard
+    </a>
+    <a href="submit-feedback.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+      </svg>
+      Submit Feedback
+    </a>
+    <a href="feedback-hub.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      Feedback Hub
+      <span class="badge">12</span>
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Information</div>
+    <a href="about.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      About
+    </a>
+    <a href="how-it-works.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <polygon points="10 8 16 12 10 16 10 8"/>
+      </svg>
+      How It Works
+    </a>
+    <a href="contact.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      Contact
+    </a>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="avatar">U</div>
+      <div class="user-info">
+        <div class="user-name">Username</div>
+        <div class="user-role">Student · NBSC</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ── MAIN AREA ── -->
+<div class="main">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="topbar-breadcrumb">
+      <span>NBSC</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+      <span style="color:var(--text)">Dashboard</span>
+    </div>
+    <div class="topbar-right">
+      <div class="icon-btn notify-dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+      </div>
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="avatar" style="width:32px;height:32px;font-size:12px;cursor:pointer">U</div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <div class="content">
+
+    <!-- HERO BANNER -->
+    <div class="hero-banner">
+      <div class="hero-tag">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+        Anonymous · Secure · Confidential
+      </div>
+      <h1>Share Your Voice,<br>Shape Your School</h1>
+      <p>The NBSC Anonymous Student Feedback System gives every student a safe space to share honest, constructive feedback — no names, no judgment, just progress.</p>
+      <div class="hero-actions">
+        <a href="submit-feedback.html" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Submit Feedback
+        </a>
+        <a href="feedback-hub.html" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          View Feedback Hub
+        </a>
+      </div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Total Submissions</div>
+        <div class="stat-value">284</div>
+        <div class="stat-change up">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          +18 this week
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Reviewed</div>
+        <div class="stat-value">211</div>
+        <div class="stat-change up">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          74% review rate
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pending Review</div>
+        <div class="stat-value">73</div>
+        <div class="stat-change neutral">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          In queue
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Actions Taken</div>
+        <div class="stat-value">47</div>
+        <div class="stat-change up">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          22% resolved
+        </div>
+      </div>
+    </div>
+
+    <!-- 2-COL GRID -->
+    <div class="grid-2">
+
+      <!-- WHY IT MATTERS CARD -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Why NBSC Feedback Matters</span>
+          <a href="about.html" class="card-action">Learn more →</a>
+        </div>
+        <div class="card-body">
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon fi-blue">🛡️</div>
+              <div class="feature-text">
+                <div class="feature-name">Complete Anonymity</div>
+                <div class="feature-desc">No personal info is stored or linked to your feedback. Speak freely without fear.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon fi-green">🔒</div>
+              <div class="feature-text">
+                <div class="feature-name">Safe Environment</div>
+                <div class="feature-desc">Express concerns openly in a protected and respectful space.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon fi-purple">🚀</div>
+              <div class="feature-text">
+                <div class="feature-name">Drive Improvement</div>
+                <div class="feature-desc">Your feedback shapes policies, teaching quality, and services.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon fi-orange">⚡</div>
+              <div class="feature-text">
+                <div class="feature-name">Student Empowerment</div>
+                <div class="feature-desc">Every voice contributes to building a better academic community.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon fi-teal">🤝</div>
+              <div class="feature-text">
+                <div class="feature-name">Stronger Community</div>
+                <div class="feature-desc">Honest communication builds trust between students and administration.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+
+        <!-- RECENT ACTIVITY CARD -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Recent Activity</span>
+            <a href="feedback-hub.html" class="card-action">View all →</a>
+          </div>
+          <div class="card-body">
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-dot dot-green"></div>
+                <div>
+                  <div class="activity-text">Admin reviewed 5 feedback submissions from academic concerns category</div>
+                  <div class="activity-time">2 hours ago</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot dot-blue"></div>
+                <div>
+                  <div class="activity-text">New feedback submitted anonymously — Campus Facilities</div>
+                  <div class="activity-time">4 hours ago</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot dot-purple"></div>
+                <div>
+                  <div class="activity-text">3 action items created based on student feedback this month</div>
+                  <div class="activity-time">Yesterday</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot dot-green"></div>
+                <div>
+                  <div class="activity-text">Policy update announced in response to student feedback</div>
+                  <div class="activity-time">2 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS CARD -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">How It Works</span>
+            <a href="how-it-works.html" class="card-action">Full guide →</a>
+          </div>
+          <div class="card-body">
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-num">STEP 01</div>
+                <div class="step-title">Submit</div>
+                <div class="step-desc">Fill out the anonymous form with your honest feedback.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STEP 02</div>
+                <div class="step-title">Review</div>
+                <div class="step-desc">Admin team carefully reviews all submitted feedback.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STEP 03</div>
+                <div class="step-title">Action</div>
+                <div class="step-desc">Changes are made based on your valuable input.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <span class="footer-text">© 2026 Northern Bukidnon State College — Anonymous Student Feedback System</span>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </footer>
 
 </div>
 
-<footer class="footer">
-  © 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
-  All rights reserved.
-</footer>
-
-
-  <script src="script.js"></script>
-  
+<script src="script.js"></script>
 </body>
 </html>
