@@ -1,11 +1,16 @@
-// SIDEBAR 
+document.addEventListener('DOMContentLoaded', function () {
+
+  // SIDEBAR 
   const hamburger = document.getElementById('hamburger');
   const sidebar   = document.getElementById('sidebar');
-  hamburger.addEventListener('click', () => sidebar.classList.toggle('open'));
-  document.addEventListener('click', e => {
-    if (window.innerWidth <= 900 && !sidebar.contains(e.target) && !hamburger.contains(e.target))
-      sidebar.classList.remove('open');
-  });
+
+  if (hamburger && sidebar) {
+    hamburger.addEventListener('click', () => sidebar.classList.toggle('open'));
+    document.addEventListener('click', e => {
+      if (window.innerWidth <= 900 && !sidebar.contains(e.target) && !hamburger.contains(e.target))
+        sidebar.classList.remove('open');
+    });
+  }
 
   // DATA 
   const feedbackData = [
@@ -29,9 +34,17 @@
   function renderTable(data) {
     const tbody = document.getElementById('feedbackTableBody');
     const empty = document.getElementById('tableEmpty');
+    if (!tbody) return;
+
     tbody.innerHTML = '';
-    if (data.length === 0) { empty.style.display = 'flex'; return; }
-    empty.style.display = 'none';
+
+    if (data.length === 0) {
+      if (empty) empty.style.display = 'flex';
+      return;
+    }
+
+    if (empty) empty.style.display = 'none';
+
     data.forEach(item => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -43,16 +56,25 @@
         <td style="font-size:12px;color:var(--text-muted);white-space:nowrap">${item.date}</td>
         <td><div class="td-actions">
           <button class="action-btn" data-id="${item.id}" title="View Details">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
           </button>
-        </div></td>`;
+        </div></td>
+      `;
       tr.addEventListener('click', () => openDetail(item.id));
       tbody.appendChild(tr);
     });
-    // action btn click (stop propagation)
+
+    // Action button — stop row click from firing
     tbody.querySelectorAll('.action-btn').forEach(btn =>
-      btn.addEventListener('click', e => { e.stopPropagation(); openDetail(btn.dataset.id); })
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        openDetail(btn.dataset.id);
+      })
     );
+
     updateCounts();
   }
 
@@ -62,25 +84,28 @@
     const status   = document.getElementById('filterStatus').value;
     const category = document.getElementById('filterCategory').value;
     const priority = document.getElementById('filterPriority').value;
+
     renderTable(feedbackData.filter(item =>
       (!search   || item.message.toLowerCase().includes(search) || item.id.toLowerCase().includes(search)) &&
-      (status   === 'all' || item.status   === status) &&
+      (status   === 'all' || item.status   === status)   &&
       (category === 'all' || item.category === category) &&
       (priority === 'all' || item.priority === priority)
     ));
   }
 
-  ['searchInput','filterStatus','filterCategory','filterPriority'].forEach(id =>
-    document.getElementById(id).addEventListener('input', applyFilters)
-  );
+  ['searchInput', 'filterStatus', 'filterCategory', 'filterPriority'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', applyFilters);
+  });
 
   // COUNTS 
   function updateCounts() {
-    document.getElementById('countAll').textContent      = feedbackData.length;
-    document.getElementById('countPending').textContent  = feedbackData.filter(f => f.status === 'pending').length;
-    document.getElementById('countReviewed').textContent = feedbackData.filter(f => f.status === 'reviewed').length;
-    document.getElementById('countResolved').textContent = feedbackData.filter(f => f.status === 'resolved').length;
-    document.getElementById('sidebarBadge').textContent  = feedbackData.length;
+    const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    set('countAll',      feedbackData.length);
+    set('countPending',  feedbackData.filter(f => f.status === 'pending').length);
+    set('countReviewed', feedbackData.filter(f => f.status === 'reviewed').length);
+    set('countResolved', feedbackData.filter(f => f.status === 'resolved').length);
+    set('sidebarBadge',  feedbackData.length);
   }
 
   // DETAIL MODAL 
@@ -88,52 +113,90 @@
     const item = feedbackData.find(f => f.id === id);
     if (!item) return;
     currentId = id;
-    document.getElementById('dmId').textContent       = item.id;
-    document.getElementById('dmCategory').textContent = item.category + ' Feedback';
-    document.getElementById('dmMessage').textContent  = item.message;
-    document.getElementById('dmDate').textContent     = item.date;
-    document.getElementById('dmNotes').value          = item.notes || '';
-    const s = document.getElementById('dmStatus');
-    s.className = `status-badge ${item.status}`; s.textContent = cap(item.status);
-    const p = document.getElementById('dmPriority');
-    p.className = `pri-chip ${item.priority.toLowerCase()}`; p.textContent = item.priority + ' Priority';
-    document.getElementById('detailModal').classList.add('show');
+
+    const set = (elId, val) => { const el = document.getElementById(elId); if (el) el.textContent = val; };
+    set('dmId',       item.id);
+    set('dmCategory', item.category + ' Feedback');
+    set('dmMessage',  item.message);
+    set('dmDate',     item.date);
+
+    const notesEl = document.getElementById('dmNotes');
+    if (notesEl) notesEl.value = item.notes || '';
+
+    const statusEl = document.getElementById('dmStatus');
+    if (statusEl) { statusEl.className = `status-badge ${item.status}`; statusEl.textContent = cap(item.status); }
+
+    const priEl = document.getElementById('dmPriority');
+    if (priEl) { priEl.className = `pri-chip ${item.priority.toLowerCase()}`; priEl.textContent = item.priority + ' Priority'; }
+
+    const modal = document.getElementById('detailModal');
+    if (modal) modal.classList.add('show');
   }
 
-  document.getElementById('closeModalBtn').addEventListener('click', closeModal);
-  document.getElementById('detailModal').addEventListener('click', e => { if (e.target === document.getElementById('detailModal')) closeModal(); });
-  function closeModal() { document.getElementById('detailModal').classList.remove('show'); currentId = null; }
+  function closeModal() {
+    const modal = document.getElementById('detailModal');
+    if (modal) modal.classList.remove('show');
+    currentId = null;
+  }
+
+  const closeBtn = document.getElementById('closeModalBtn');
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  const modalOverlay = document.getElementById('detailModal');
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', e => {
+      if (e.target === modalOverlay) closeModal();
+    });
+  }
 
   // STATUS UPDATE 
   function updateStatus(newStatus) {
     if (!currentId) return;
     const item = feedbackData.find(f => f.id === currentId);
+    if (!item) return;
     item.status = newStatus;
-    const s = document.getElementById('dmStatus');
-    s.className = `status-badge ${newStatus}`; s.textContent = cap(newStatus);
+
+    const statusEl = document.getElementById('dmStatus');
+    if (statusEl) { statusEl.className = `status-badge ${newStatus}`; statusEl.textContent = cap(newStatus); }
+
     applyFilters();
-    toast(`Status updated to "${cap(newStatus)}"`);
+    showToast(`Status updated to "${cap(newStatus)}"`);
   }
 
-  document.getElementById('btnPending').addEventListener('click',  () => updateStatus('pending'));
-  document.getElementById('btnReviewed').addEventListener('click', () => updateStatus('reviewed'));
-  document.getElementById('btnResolved').addEventListener('click', () => updateStatus('resolved'));
+  const btnPending  = document.getElementById('btnPending');
+  const btnReviewed = document.getElementById('btnReviewed');
+  const btnResolved = document.getElementById('btnResolved');
+  if (btnPending)  btnPending.addEventListener('click',  () => updateStatus('pending'));
+  if (btnReviewed) btnReviewed.addEventListener('click', () => updateStatus('reviewed'));
+  if (btnResolved) btnResolved.addEventListener('click', () => updateStatus('resolved'));
 
   // SAVE NOTE 
-  document.getElementById('btnSaveNote').addEventListener('click', () => {
-    if (!currentId) return;
-    feedbackData.find(f => f.id === currentId).notes = document.getElementById('dmNotes').value;
-    toast('Note saved successfully');
-  });
+  const btnSaveNote = document.getElementById('btnSaveNote');
+  if (btnSaveNote) {
+    btnSaveNote.addEventListener('click', () => {
+      if (!currentId) return;
+      const item = feedbackData.find(f => f.id === currentId);
+      if (!item) return;
+      const notesEl = document.getElementById('dmNotes');
+      if (notesEl) item.notes = notesEl.value;
+      showToast('Note saved successfully');
+    });
+  }
 
   // TOAST 
-  function toast(msg) {
+  function showToast(msg) {
     const t = document.getElementById('toast');
-    t.textContent = msg; t.classList.add('show');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2800);
   }
 
-  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  // HELPER 
+  function cap(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
 
-  // INIT 
   renderTable(feedbackData);
+
+}); 
