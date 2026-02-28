@@ -1,181 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anonymous Student Feedback System</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Feedback — NBSC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="submit-feedback.css">
 </head>
-
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-left">
-      <a href="home.html">Anonymous Student Feedback System</a>
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <div class="logo-icon">NB</div>
+      <div class="logo-text">
+        NBSC Feedback
+        <div class="logo-sub">Northern Bukidnon State College</div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Main</div>
+    <a href="index.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Dashboard
+    </a>
+    <a href="submit-feedback.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Submit Feedback
+    </a>
+    <a href="feedback-hub.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Feedback Hub
+      <span class="badge">12</span>
+    </a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Information</div>
+    <a href="about.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      About
+    </a>
+    <a href="how-it-works.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      How It Works
+    </a>
+    <a href="contact.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Contact
+    </a>
+  </div>
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="avatar">U</div>
+      <div class="user-info">
+        <div class="user-name">Username</div>
+        <div class="user-role">Student · NBSC</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<div class="main">
+  <header class="topbar">
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="topbar-breadcrumb">
+      <span>NBSC</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span style="color:var(--text)">Submit Feedback</span>
+    </div>
+    <div class="topbar-right">
+      <div class="icon-btn notify-dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </div>
+      <div class="avatar" style="width:32px;height:32px;font-size:12px;cursor:pointer">U</div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Submit Feedback</h1>
+        <p class="page-subtitle">Your identity is fully protected. All submissions are anonymous and confidential.</p>
+      </div>
+      <div class="anon-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Anonymous Submission
+      </div>
     </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- FORM LAYOUT -->
+    <div class="form-layout">
 
-    <div class="navbar-center" id="navbarCenter">
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="submit-feedback.html">Submit Feedback</a>
-      <a href="feedback-hub.html">Feedback Hub</a>
-      <a href="contact.html">Contacts</a>
-    </div>
+      <!-- LEFT: FORM -->
+      <div class="form-card">
 
-    <div class="navbar-right">
-      <a href="#">Username</a>
-      <img src="profile.png" alt="Profile Picture">
-    </div>
-  </nav>
-
-  <link rel="stylesheet" href="feedback.css">
-
-  <div class="feedback-page">
-    <div class="feedback-container">
-
-      <h1 class="feedback-title">Share Your Feedback</h1>
-      <p class="feedback-subtitle">All responses are kept strictly anonymous</p>
-
-      <form class="feedback-form" action="feedback-hub.html" method="post">
-
-        <!-- Category -->
-        <label class="feedback-label" for="category">Category</label>
-        <select class="feedback-select" id="category" name="category" required>
-          <option value="">Select a category</option>
-          <option value="academic">Academic</option>
-          <option value="faculty">Faculty</option>
-          <option value="facilities">Facilities</option>
-          <option value="services">Student Services</option>
-          <option value="other">Other</option>
-        </select>
-
-        <!-- Rating -->
-        <label class="rating-label">Rate Your Experience</label>
-
-        <div class="rating-stars" data-rating="0">
-          <span class="rating-star" data-value="1">★</span>
-          <span class="rating-star" data-value="2">★</span>
-          <span class="rating-star" data-value="3">★</span>
-          <span class="rating-star" data-value="4">★</span>
-          <span class="rating-star" data-value="5">★</span>
-        </div>
-
-        <input type="hidden" name="rating" id="ratingValue" required>
-
-
-        <!-- Feedback -->
-        <label class="feedback-label" for="feedback">Your Feedback</label>
-        <textarea class="feedback-textarea" id="feedback" name="feedback"
-          placeholder="Describe your experience, suggestion, or concern..." required></textarea>
-
-        <!-- Tags -->
-        <label class="feedback-label">Tags (Optional)</label>
-
-        <div class="feedback-checkbox-group">
-          <label class="tag tag-urgent">
-            <input type="checkbox" name="tags[]" value="urgent">
-            Urgent
-          </label>
-
-          <label class="tag tag-suggestion">
-            <input type="checkbox" name="tags[]" value="suggestion">
-            Suggestion
-          </label>
-
-          <label class="tag tag-complaint">
-            <input type="checkbox" name="tags[]" value="complaint">
-            Complaint
-          </label>
-
-          <label class="tag tag-compliment">
-            <input type="checkbox" name="tags[]" value="compliment">
-            Compliment
-          </label>
-
-          <label class="tag tag-followup">
-            <input type="checkbox" name="tags[]" value="follow-up">
-            Follow-up
-          </label>
-        </div>
-
-
-        <!-- Visibility -->
-        <label class="feedback-label">Visibility</label>
-
-        <div class="visibility-toggle" id="visibilityToggle">
-          <div class="toggle-option active" data-value="public">
-            Public
+        <!-- STEP 1: CATEGORY -->
+        <div class="form-section">
+          <div class="form-section-label">
+            <span class="step-pill">01</span>
+            Select Category
           </div>
-          <div class="toggle-option" data-value="private">
-            Private
+          <div class="category-grid">
+            <label class="cat-option">
+              <input type="radio" name="category" value="academic" checked>
+              <div class="cat-box">
+                <span class="cat-icon">📚</span>
+                <span class="cat-name">Academic</span>
+              </div>
+            </label>
+            <label class="cat-option">
+              <input type="radio" name="category" value="facilities">
+              <div class="cat-box">
+                <span class="cat-icon">🏛️</span>
+                <span class="cat-name">Facilities</span>
+              </div>
+            </label>
+            <label class="cat-option">
+              <input type="radio" name="category" value="faculty">
+              <div class="cat-box">
+                <span class="cat-icon">👨‍🏫</span>
+                <span class="cat-name">Faculty</span>
+              </div>
+            </label>
+            <label class="cat-option">
+              <input type="radio" name="category" value="services">
+              <div class="cat-box">
+                <span class="cat-icon">🛎️</span>
+                <span class="cat-name">Services</span>
+              </div>
+            </label>
+            <label class="cat-option">
+              <input type="radio" name="category" value="safety">
+              <div class="cat-box">
+                <span class="cat-icon">🛡️</span>
+                <span class="cat-name">Safety</span>
+              </div>
+            </label>
+            <label class="cat-option">
+              <input type="radio" name="category" value="other">
+              <div class="cat-box">
+                <span class="cat-icon">💬</span>
+                <span class="cat-name">Other</span>
+              </div>
+            </label>
           </div>
         </div>
 
-        <!-- Hidden input for form submission -->
-        <input type="hidden" name="visibility" id="visibilityInput" value="public">
-
-
-
-
-        <!-- About -->
-        <label class="about-select-label">What is this about?</label>
-
-        <div class="about-select-group">
-
-          <div class="about-select-card" data-value="instructor">
-            <input type="radio" name="about" value="instructor" hidden required>
-            <div class="about-card-title">Instructor</div>
-            <div class="about-card-desc">A specific faculty member</div>
+        <!-- STEP 2: PRIORITY -->
+        <div class="form-section">
+          <div class="form-section-label">
+            <span class="step-pill">02</span>
+            Priority / Urgency Level
           </div>
-
-          <div class="about-select-card" data-value="authorized">
-            <input type="radio" name="about" value="authorized" hidden>
-            <div class="about-card-title">Authorized Personnel</div>
-            <div class="about-card-desc">Admin / staff member</div>
+          <div class="priority-row">
+            <label class="priority-option">
+              <input type="radio" name="priority" value="low" checked>
+              <div class="priority-box low">
+                <span class="p-dot"></span>
+                Low
+              </div>
+            </label>
+            <label class="priority-option">
+              <input type="radio" name="priority" value="medium">
+              <div class="priority-box medium">
+                <span class="p-dot"></span>
+                Medium
+              </div>
+            </label>
+            <label class="priority-option">
+              <input type="radio" name="priority" value="high">
+              <div class="priority-box high">
+                <span class="p-dot"></span>
+                High
+              </div>
+            </label>
+            <label class="priority-option">
+              <input type="radio" name="priority" value="urgent">
+              <div class="priority-box urgent">
+                <span class="p-dot"></span>
+                Urgent
+              </div>
+            </label>
           </div>
-
-          <div class="about-select-card" data-value="general">
-            <input type="radio" name="about" value="general" hidden>
-            <div class="about-card-title">General / School</div>
-            <div class="about-card-desc">Not about one person</div>
-          </div>
-
-
-
-
         </div>
 
-        <!-- Evidence -->
-        <label class="feedback-label" for="evidence">Attach Evidence (Optional)</label>
-        <input class="feedback-file" type="file" id="evidence" name="evidence">
+        <!-- STEP 3: MESSAGE -->
+        <div class="form-section">
+          <div class="form-section-label">
+            <span class="step-pill">03</span>
+            Your Feedback
+          </div>
+          <div class="textarea-wrap">
+            <textarea
+              id="feedbackText"
+              placeholder="Describe your feedback in detail. Be as specific as possible to help us take the right action..."
+              maxlength="1000"
+            ></textarea>
+            <div class="char-count"><span id="charCount">0</span> / 1000</div>
+          </div>
+        </div>
 
-        <!-- Submit -->
-        <button class="feedback-submit-btn" type="submit">
-          Submit Feedback
-        </button>
+        <!-- STEP 4: ATTACHMENT -->
+        <div class="form-section">
+          <div class="form-section-label">
+            <span class="step-pill">04</span>
+            Attach File <span class="optional-tag">Optional</span>
+          </div>
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" hidden>
+            <div class="dz-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <p class="dz-text">Drag & drop files here or <span class="dz-link" onclick="document.getElementById('fileInput').click()">browse</span></p>
+            <p class="dz-hint">Supports JPG, PNG, PDF, DOC — max 10MB each</p>
+            <div class="file-list" id="fileList"></div>
+          </div>
+        </div>
 
-      </form>
+        <!-- SUBMIT -->
+        <div class="form-actions">
+          <button class="btn-ghost" type="button" onclick="clearForm()">Clear Form</button>
+          <button class="btn-primary" type="button" onclick="submitFeedback()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Submit Anonymously
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT: INFO PANEL -->
+      <div class="info-panel">
+        <div class="info-card">
+          <div class="info-icon">🔒</div>
+          <div class="info-title">Your Anonymity is Guaranteed</div>
+          <div class="info-desc">No names, student IDs, or personal data are collected or stored with your submission.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">⚡</div>
+          <div class="info-title">Fast Review Process</div>
+          <div class="info-desc">All submissions are reviewed by the admin team within 3–5 business days.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📢</div>
+          <div class="info-title">Your Voice Matters</div>
+          <div class="info-desc">Feedback directly influences school policies, teaching practices, and campus improvements.</div>
+        </div>
+        <div class="guidelines-box">
+          <div class="guidelines-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Submission Guidelines
+          </div>
+          <ul class="guidelines-list">
+            <li>Be specific and constructive</li>
+            <li>Avoid offensive or harmful language</li>
+            <li>Focus on facts, not personal attacks</li>
+            <li>One issue per submission is ideal</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div class="modal-icon">✅</div>
+      <div class="modal-title">Feedback Submitted!</div>
+      <div class="modal-desc">Your anonymous feedback has been received. The admin team will review it shortly.</div>
+      <div class="modal-ref">Reference ID: <span id="refId"></span></div>
+      <button class="btn-primary" style="width:100%;justify-content:center;" onclick="closeModal()">Done</button>
+    </div>
+  </div>
 
-  <footer class="footer">
-    <p>
-      © 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
-      All rights reserved.
-    </p>
+  <footer class="app-footer">
+    <span class="footer-text">© 2026 Northern Bukidnon State College — Anonymous Student Feedback System</span>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
   </footer>
+</div>
 
-  <script src="script.js"></script>
-
+<script src="script.js"></script>
+<script src="submit-feedback.js"></script>
 </body>
-
 </html>
