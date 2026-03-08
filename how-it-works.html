@@ -3,163 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anonymous Student Feedback System</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>How It Works — NBSC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/how-it-works.css" />
 </head>
 <body>
 
+<!-- Background glow -->
+<div class="page-glow"></div>
 
-<nav class="navbar">
-    <div class="navbar-left">
-        <a href="home.html">Anonymous Student Feedback System</a>
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-avatar">NB</div>
+    <div class="brand-text">
+      <div class="brand-name">NBSC Feedback</div>
+      <div class="brand-sub">Northern Bukidnon State College</div>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Main</div>
+    <a href="home.html" class="nav-item">
+      <div class="nav-icon">🏠</div> Dashboard
+    </a>
+    <a href="submit-feedback.html" class="nav-item">
+      <div class="nav-icon">✏️</div> Submit Feedback
+    </a>
+    <a href="feedback-hub.html" class="nav-item">
+      <div class="nav-icon">💬</div> Feedback Hub
+      <span class="nav-badge">12</span>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Information</div>
+    <a href="about.html" class="nav-item">
+      <div class="nav-icon">ℹ️</div> About
+    </a>
+    <a href="how-it-works.html" class="nav-item active">
+      <div class="nav-icon">⚙️</div> How It Works
+    </a>
+    <a href="contact.html" class="nav-item">
+      <div class="nav-icon">📞</div> Contact
+    </a>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="user-avatar">U</div>
+    <div class="user-info">
+      <div class="user-name">Username</div>
+      <div class="user-role">Student · NBSC</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="home.html">NBSC</a>
+      <span class="sep">›</span>
+      <span class="current">How It Works</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="topbar-btn">
+        🔔
+        <span class="notif-dot"></span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="page-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">How It Works</h1>
+        <p class="page-subtitle">A simple and secure process to make your voice heard anonymously.</p>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        System Active
+      </div>
     </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- Steps + Info Panel -->
+    <div class="section-label">Process Overview</div>
 
-    <div class="navbar-center" id="navbarCenter">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="submit-feedback.html">Submit Feedback</a>
-        <a href="feedback-hub.html">Feedback Hub</a>
-        <a href="contact.html">Contacts</a>
+    <div class="steps-layout">
+      <div class="steps-list">
+
+        <div class="step-card">
+          <div class="step-left">
+            <div class="step-num">01</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Create Your Feedback</div>
+            <div class="step-desc">Visit the Submit Feedback page and share your thoughts, concerns, or suggestions. Choose your feedback category — Academic, Facilities, Student Services, or Administration — and provide detailed information to help us understand your perspective.</div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-left">
+            <div class="step-num">02</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Stay Anonymous</div>
+            <div class="step-desc">Your identity is completely protected. We don't collect any personal information, IP addresses, or identifiable data. You have the option to submit publicly — visible to other students — or anonymously, visible only to administrators.</div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-left">
+            <div class="step-num">03</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Review Process</div>
+            <div class="step-desc">Our dedicated team reviews all feedback submissions promptly. Each submission is carefully evaluated for validity and importance. Urgent matters are prioritized and addressed immediately.</div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-left">
+            <div class="step-num">04</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Action & Response</div>
+            <div class="step-desc">Relevant departments are notified and work on addressing your feedback. You can track the status in the Feedback Hub — Under Review, Planned, Acknowledged, or Resolved. The community can see updates and progress on public submissions.</div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-left">
+            <div class="step-num">05</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Continuous Improvement</div>
+            <div class="step-desc">Your feedback drives real change. We analyze patterns and trends to improve policies, services, and facilities. Regular reports are shared with the NBSC community showing how student feedback has made a difference.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Info Panel -->
+      <aside class="info-panel">
+
+        <div class="info-card">
+          <div class="info-icon-wrap green">🔐</div>
+          <div class="info-title">Your Anonymity is Guaranteed</div>
+          <div class="info-desc">No names, student IDs, or personal data are collected or stored with your submission.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon-wrap yellow">⚡</div>
+          <div class="info-title">Fast Review Process</div>
+          <div class="info-desc">All submissions are reviewed by the admin team within 3–5 business days.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon-wrap blue">📣</div>
+          <div class="info-title">Your Voice Matters</div>
+          <div class="info-desc">Feedback directly influences school policies, teaching practices, and campus improvements.</div>
+        </div>
+
+      </aside>
     </div>
 
-    <div class="navbar-right">
-        <a href="#">Username</a>
-        <img src="profile.png" alt="Profile Picture">
+    <!-- Features -->
+    <div class="features-section">
+      <div class="section-label" style="margin-top: 36px;">Key Features</div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-title">100% Anonymous</div>
+          <div class="feature-desc">No personal data collected. Your identity is never revealed or stored in our system.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Quick & Easy</div>
+          <div class="feature-desc">Submit feedback in less than 2 minutes. Simple form, no complicated process.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Track Progress</div>
+          <div class="feature-desc">See status updates on public feedback. Know when your concerns are being addressed.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title">Direct Impact</div>
+          <div class="feature-desc">Your feedback goes straight to decision-makers who can create real change.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-title">Community Voice</div>
+          <div class="feature-desc">See what other students are saying. Support feedback that matters to you.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <div class="feature-title">Verified Response</div>
+          <div class="feature-desc">All feedback receives official review. Important issues get prioritized attention.</div>
+        </div>
+      </div>
     </div>
-</nav>
 
-<section class="work-header">
-  <div class="works-header-container">
-        <h1>How It Works</h1>
-        <p>A simple and secure process to make your voice heard</p>
-    </div>
-</section>
+  </main>
 
-<br>
+  <footer class="footer">
+    © 2026 Northern Bukidnon State College – Anonymous Student Feedback System. All rights reserved.
+  </footer>
+</div>
 
-<section class="works-steps">
-  <div class="works-container">
-        
-        <!-- Step 1 -->
-        <div class="step-item">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <h2>Create Your Feedback</h2>
-                <p>Visit the Submit Feedback page and share your thoughts, concerns, or suggestions. 
-                   Choose your feedback category (Academic, Facilities, Student Services, or Administration) 
-                   and provide detailed information to help us understand your perspective.</p>
-            </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="step-item">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <h2>Stay Anonymous</h2>
-                <p>Your identity is completely protected. We don't collect any personal information, 
-                   IP addresses, or identifiable data. You have the option to submit publicly (visible to 
-                   other students) or anonymously (visible only to administrators).</p>
-            </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="step-item">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <h2>Review Process</h2>
-                <p>Our dedicated team reviews all feedback submissions promptly. Each submission is 
-                   carefully evaluated for validity and importance. Urgent matters are prioritized 
-                   and addressed immediately.</p>
-            </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="step-item">
-            <div class="step-number">4</div>
-            <div class="step-content">
-                <h2>Action & Response</h2>
-                <p>Relevant departments are notified and work on addressing your feedback. You can 
-                   track the status in the Feedback Hub (Under Review, Planned, Acknowledged, or Resolved). 
-                   The community can see updates and progress on public submissions.</p>
-            </div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="step-item">
-            <div class="step-number">5</div>
-            <div class="step-content">
-                <h2>Continuous Improvement</h2>
-                <p>Your feedback drives real change. We analyze patterns and trends to improve policies, 
-                   services, and facilities. Regular reports are shared with the NBSC community showing 
-                   how student feedback has made a difference.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<br>
-<br>
-
-<section class="work-features">
-  <div class="works-container">
-        <h2 class="features-title">Key Features</h2>
-        
-        <div class="features-grid">
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔐</div>
-                <h3>100% Anonymous</h3>
-                <p>No personal data collected. Your identity is never revealed or stored in our system.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Quick & Easy</h3>
-                <p>Submit feedback in less than 2 minutes. Simple form, no complicated process.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Track Progress</h3>
-                <p>See status updates on public feedback. Know when your concerns are being addressed.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Direct Impact</h3>
-                <p>Your feedback goes straight to decision-makers who can create real change.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Community Voice</h3>
-                <p>See what other students are saying. Support feedback that matters to you.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">✅</div>
-                <h3>Verified Response</h3>
-                <p>All feedback receives official review. Important issues get prioritized attention.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
-© 2026 Northern Bukidnon State College – Anonymous Student Feedback System.
-All rights reserved.
-</footer>
-
-
-  <script src="script.js"></script>
-  <link rel="stylesheet" href="style.css">
 </body>
 </html>
